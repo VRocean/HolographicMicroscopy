@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="#stylesheet"?>
+<!DOCTYPE doc [
+<!ATTLIST xsl:stylesheet
+id ID #REQUIRED>
+]>
+<doc>
+	<!--Start XSL-->
+	<xsl:stylesheet  id="stylesheet" version="1.0" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+		<xsl:template match="/doc">
+			<html>
+				<body>
+					<h2>
+						<xsl:value-of select="DATA/FILENAME"/>
+					</h2>
+					
+					<h2>
+					Processing time : <xsl:value-of select="DATA/TIME"/> minutes
+					</h2>
+					<h5>
+						Contours Splatted
+					</h5>
+					<img height="1024" width="1024">
+						<xsl:attribute name="src">
+							<xsl:value-of select="DATA/CONTOURSPLATIMAGE"/>
+						</xsl:attribute>
+					</img>
+					<h5>
+						Depth
+					</h5>
+					<img height="1024" width="1024">
+						<xsl:attribute name="src">
+							<xsl:value-of select="DATA/DEPTHIMAGE"/>
+						</xsl:attribute>
+					</img>
+					<h5>
+						Contours IDs
+					</h5>
+					<img height="1024" width="1024">
+						<xsl:attribute name="src">
+							<xsl:value-of select="DATA/CONTOURIMAGE"/>
+						</xsl:attribute>
+					</img>
+					<h5>
+						Scores
+					</h5>
+					<img height="1024" width="1024">
+						<xsl:attribute name="src">
+							<xsl:value-of select="DATA/MAXIMAGE"/>
+						</xsl:attribute>
+					</img>
+					<xsl:if test="QCDATA">
+						<h3>
+						QC Data
+						</h3>
+						<table border="1">
+							<tr bgcolor="#9acd32">
+								<th>Type</th>
+								<th>X</th>
+								<th>Y</th>
+								<th>Major axis</th>
+								<th>Minor axis</th>
+								<th>Depth</th>
+								<th>Image</th>
+							</tr>
+							<xsl:for-each select="QCDATA/ROI">
+								<tr>
+									<td><xsl:value-of select="TYPE"/></td>
+									<td><xsl:value-of select="X"/></td>
+									<td><xsl:value-of select="Y"/></td>
+									<td><xsl:value-of select="MAJORAXIS"/></td>
+									<td><xsl:value-of select="MINORAXIS"/></td>
+									<td><xsl:value-of select="DEPTH"/></td>
+									<td>
+										<img>
+											<xsl:attribute name="src">
+												<xsl:value-of select="IMAGE"/>
+											</xsl:attribute>
+										</img>
+									</td>
+								</tr>
+							</xsl:for-each>
+						</table>
+					</xsl:if>
+					
+					<h3>
+					Detected
+					</h3>
+					
+					<table border="1">
+						<tr bgcolor="#9acd32">
+							<th>Contour</th>
+							<th>X</th>
+							<th>Y</th>
+							<th>ESD</th>
+							<th>ESV</th>
+							<th>Width</th>
+							<th>Height</th>
+							<th>Depth</th>
+							<th>Image</th>
+							<th>Phase</th>
+							<th>Score</th>
+							<th>MaxScore</th>
+							<th>MinScore</th>
+						</tr>
+						<xsl:for-each select="DATA/ROI">
+							<tr>
+								<td><xsl:value-of select="CONTOUR"/></td>
+								<td><xsl:value-of select="X"/></td>
+								<td><xsl:value-of select="Y"/></td>
+								<td><xsl:value-of select="ESD"/></td>
+								<td><xsl:value-of select="ESV"/></td>
+								<td><xsl:value-of select="WIDTH"/></td>
+								<td><xsl:value-of select="HEIGHT"/></td>
+								<td><xsl:value-of select="DEPTH"/></td>
+								<td>
+									<img>
+										<xsl:attribute name="src">
+											<xsl:value-of select="IMAGE"/>
+										</xsl:attribute>
+									</img>
+								</td>
+								<td>
+									<img>
+										<xsl:attribute name="src">
+											<xsl:value-of select="IMAGEPHASE"/>
+										</xsl:attribute>
+									</img>
+								</td>
+								<td>
+									<img>
+										<xsl:attribute name="src">
+											<xsl:value-of select="IMAGESCORE"/>
+										</xsl:attribute>
+									</img>
+								</td>
+								<td><xsl:value-of select="MAXVAL"/></td>
+								<td><xsl:value-of select="MINVAL"/></td>
+							</tr>
+						</xsl:for-each>
+					</table>
+				</body>
+			</html>
+			
+		</xsl:template>
+	</xsl:stylesheet>
+	<!--Start XML--><DATA>
+<FILENAME>FK170124_station1_cast003_28-Jan-2017_16-22-42-277.bmp</FILENAME>
+<CONTOURSPLATIMAGE>contoursSplat.png</CONTOURSPLATIMAGE>
+<CONTOURIMAGE>contours.png</CONTOURIMAGE>
+<MAXIMAGE>maximum.png</MAXIMAGE>
+<DEPTHIMAGE>depthImage.png</DEPTHIMAGE>
+<TIME>5</TIME>
+<NBCONTOURS>30</NBCONTOURS>
+<ROI>
+<CONTOUR>0</CONTOUR>
+<X_PIXEL>1632.5</X_PIXEL>
+<X>374.836</X>
+<Y_PIXEL>1679</Y_PIXEL>
+<Y>403.48</Y>
+<ESD>7.77125</ESD>
+<ESV>245.737</ESV>
+<WIDTH_PIXEL>17</WIDTH_PIXEL>
+<WIDTH>10.472</WIDTH>
+<HEIGHT_PIXEL>14</HEIGHT_PIXEL>
+<HEIGHT>8.624</HEIGHT>
+<DEPTH>8800</DEPTH>
+<AREA_PIXEL>125</AREA_PIXEL>
+<AREA>47.432</AREA>
+<MAXVAL>494.198</MAXVAL>
+<MINVAL>1.97085</MINVAL>
+<IMAGE>contoursMasked_0.png</IMAGE>
+<IMAGEPHASE>contoursPhase_0.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_0.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>1</CONTOUR>
+<X_PIXEL>1240.5</X_PIXEL>
+<X>204.593</X>
+<Y_PIXEL>1664</Y_PIXEL>
+<Y>604.8</Y>
+<ESD>3.37199</ESD>
+<ESV>20.0752</ESV>
+<WIDTH_PIXEL>3</WIDTH_PIXEL>
+<WIDTH>2.835</WIDTH>
+<HEIGHT_PIXEL>4</HEIGHT_PIXEL>
+<HEIGHT>3.78</HEIGHT>
+<DEPTH>13500</DEPTH>
+<AREA_PIXEL>10</AREA_PIXEL>
+<AREA>8.93025</AREA>
+<MAXVAL>314.529</MAXVAL>
+<MINVAL>0.757686</MINVAL>
+<IMAGE>contoursMasked_1.png</IMAGE>
+<IMAGEPHASE>contoursPhase_1.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_1.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>2</CONTOUR>
+<X_PIXEL>585</X_PIXEL>
+<X>-528.556</X>
+<Y_PIXEL>1502</Y_PIXEL>
+<Y>575.512</Y>
+<ESD>4.70622</ESD>
+<ESV>54.5777</ESV>
+<WIDTH_PIXEL>4</WIDTH_PIXEL>
+<WIDTH>4.816</WIDTH>
+<HEIGHT_PIXEL>4</HEIGHT_PIXEL>
+<HEIGHT>4.816</HEIGHT>
+<DEPTH>17200</DEPTH>
+<AREA_PIXEL>12</AREA_PIXEL>
+<AREA>17.3954</AREA>
+<MAXVAL>426.519</MAXVAL>
+<MINVAL>0.745179</MINVAL>
+<IMAGE>contoursMasked_2.png</IMAGE>
+<IMAGEPHASE>contoursPhase_2.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_2.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>3</CONTOUR>
+<X_PIXEL>1422.5</X_PIXEL>
+<X>608.111</X>
+<Y_PIXEL>1477</Y_PIXEL>
+<Y>691.278</Y>
+<ESD>9.11147</ESD>
+<ESV>396.063</ESV>
+<WIDTH_PIXEL>5</WIDTH_PIXEL>
+<WIDTH>7.63</WIDTH>
+<HEIGHT_PIXEL>6</HEIGHT_PIXEL>
+<HEIGHT>9.156</HEIGHT>
+<DEPTH>21800</DEPTH>
+<AREA_PIXEL>28</AREA_PIXEL>
+<AREA>65.2029</AREA>
+<MAXVAL>853.085</MAXVAL>
+<MINVAL>1.28302</MINVAL>
+<IMAGE>contoursMasked_3.png</IMAGE>
+<IMAGEPHASE>contoursPhase_3.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_3.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>4</CONTOUR>
+<X_PIXEL>642.5</X_PIXEL>
+<X>-499.384</X>
+<Y_PIXEL>1435</Y_PIXEL>
+<Y>537.999</Y>
+<ESD>14.0901</ESD>
+<ESV>1464.69</ESV>
+<WIDTH_PIXEL>13</WIDTH_PIXEL>
+<WIDTH>17.017</WIDTH>
+<HEIGHT_PIXEL>12</HEIGHT_PIXEL>
+<HEIGHT>15.708</HEIGHT>
+<DEPTH>18700</DEPTH>
+<AREA_PIXEL>91</AREA_PIXEL>
+<AREA>155.927</AREA>
+<MAXVAL>641.439</MAXVAL>
+<MINVAL>2.05177</MINVAL>
+<IMAGE>contoursMasked_4.png</IMAGE>
+<IMAGEPHASE>contoursPhase_4.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_4.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>5</CONTOUR>
+<X_PIXEL>1727.5</X_PIXEL>
+<X>1058.77</X>
+<Y_PIXEL>1355.5</Y_PIXEL>
+<Y>498.908</Y>
+<ESD>18.6803</ESD>
+<ESV>3413.12</ESV>
+<WIDTH_PIXEL>13</WIDTH_PIXEL>
+<WIDTH>19.565</WIDTH>
+<HEIGHT_PIXEL>11</HEIGHT_PIXEL>
+<HEIGHT>16.555</HEIGHT>
+<DEPTH>21500</DEPTH>
+<AREA_PIXEL>121</AREA_PIXEL>
+<AREA>274.068</AREA>
+<MAXVAL>1016.46</MAXVAL>
+<MINVAL>2.45562</MINVAL>
+<IMAGE>contoursMasked_5.png</IMAGE>
+<IMAGEPHASE>contoursPhase_5.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_5.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>6</CONTOUR>
+<X_PIXEL>1676</X_PIXEL>
+<X>543.116</X>
+<Y_PIXEL>1336</Y_PIXEL>
+<Y>259.896</Y>
+<ESD>4.6997</ESD>
+<ESV>54.3512</ESV>
+<WIDTH_PIXEL>6</WIDTH_PIXEL>
+<WIDTH>4.998</WIDTH>
+<HEIGHT_PIXEL>6</HEIGHT_PIXEL>
+<HEIGHT>4.998</HEIGHT>
+<DEPTH>11900</DEPTH>
+<AREA_PIXEL>25</AREA_PIXEL>
+<AREA>17.3472</AREA>
+<MAXVAL>497.715</MAXVAL>
+<MINVAL>1.60194</MINVAL>
+<IMAGE>contoursMasked_6.png</IMAGE>
+<IMAGEPHASE>contoursPhase_6.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_6.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>7</CONTOUR>
+<X_PIXEL>1162.5</X_PIXEL>
+<X>194.87</X>
+<Y_PIXEL>1290</Y_PIXEL>
+<Y>374.262</Y>
+<ESD>13.6573</ESD>
+<ESV>1333.81</ESV>
+<WIDTH_PIXEL>9</WIDTH_PIXEL>
+<WIDTH>12.663</WIDTH>
+<HEIGHT_PIXEL>10</HEIGHT_PIXEL>
+<HEIGHT>14.07</HEIGHT>
+<DEPTH>20100</DEPTH>
+<AREA_PIXEL>74</AREA_PIXEL>
+<AREA>146.494</AREA>
+<MAXVAL>823.293</MAXVAL>
+<MINVAL>2.24568</MINVAL>
+<IMAGE>contoursMasked_7.png</IMAGE>
+<IMAGEPHASE>contoursPhase_7.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_7.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>8</CONTOUR>
+<X_PIXEL>1524.5</X_PIXEL>
+<X>763.763</X>
+<Y_PIXEL>1254.5</Y_PIXEL>
+<Y>351.743</Y>
+<ESD>20.3739</ESD>
+<ESV>4428.12</ESV>
+<WIDTH_PIXEL>13</WIDTH_PIXEL>
+<WIDTH>19.838</WIDTH>
+<HEIGHT_PIXEL>13</HEIGHT_PIXEL>
+<HEIGHT>19.838</HEIGHT>
+<DEPTH>21800</DEPTH>
+<AREA_PIXEL>140</AREA_PIXEL>
+<AREA>326.015</AREA>
+<MAXVAL>1581.29</MAXVAL>
+<MINVAL>3.84242</MINVAL>
+<IMAGE>contoursMasked_8.png</IMAGE>
+<IMAGEPHASE>contoursPhase_8.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_8.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>9</CONTOUR>
+<X_PIXEL>834</X_PIXEL>
+<X>-98.42</X>
+<Y_PIXEL>1143.5</Y_PIXEL>
+<Y>61.901</Y>
+<ESD>6.9159</ESD>
+<ESV>173.199</ESV>
+<WIDTH_PIXEL>14</WIDTH_PIXEL>
+<WIDTH>7.252</WIDTH>
+<HEIGHT_PIXEL>13</HEIGHT_PIXEL>
+<HEIGHT>6.734</HEIGHT>
+<DEPTH>7400</DEPTH>
+<AREA_PIXEL>140</AREA_PIXEL>
+<AREA>37.5654</AREA>
+<MAXVAL>542.952</MAXVAL>
+<MINVAL>2.57416</MINVAL>
+<IMAGE>contoursMasked_9.png</IMAGE>
+<IMAGEPHASE>contoursPhase_9.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_9.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>10</CONTOUR>
+<X_PIXEL>1499</X_PIXEL>
+<X>279.3</X>
+<Y_PIXEL>1123.5</Y_PIXEL>
+<Y>58.506</Y>
+<ESD>8.23366</ESD>
+<ESV>292.265</ESV>
+<WIDTH_PIXEL>12</WIDTH_PIXEL>
+<WIDTH>7.056</WIDTH>
+<HEIGHT_PIXEL>25</HEIGHT_PIXEL>
+<HEIGHT>14.7</HEIGHT>
+<DEPTH>8400</DEPTH>
+<AREA_PIXEL>154</AREA_PIXEL>
+<AREA>53.2446</AREA>
+<MAXVAL>423.976</MAXVAL>
+<MINVAL>3.2961</MINVAL>
+<IMAGE>contoursMasked_10.png</IMAGE>
+<IMAGEPHASE>contoursPhase_10.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_10.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>11</CONTOUR>
+<X_PIXEL>1464.5</X_PIXEL>
+<X>262.098</X>
+<Y_PIXEL>1119</Y_PIXEL>
+<Y>56.525</Y>
+<ESD>35.974</ESD>
+<ESV>24376.1</ESV>
+<WIDTH_PIXEL>63</WIDTH_PIXEL>
+<WIDTH>37.485</WIDTH>
+<HEIGHT_PIXEL>62</HEIGHT_PIXEL>
+<HEIGHT>36.89</HEIGHT>
+<DEPTH>8500</DEPTH>
+<AREA_PIXEL>2871</AREA_PIXEL>
+<AREA>1016.41</AREA>
+<MAXVAL>509.204</MAXVAL>
+<MINVAL>3.94923</MINVAL>
+<IMAGE>contoursMasked_11.png</IMAGE>
+<IMAGEPHASE>contoursPhase_11.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_11.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>12</CONTOUR>
+<X_PIXEL>1990.5</X_PIXEL>
+<X>1204.26</X>
+<Y_PIXEL>949</Y_PIXEL>
+<Y>-93.45</Y>
+<ESD>6.59454</ESD>
+<ESV>150.159</ESV>
+<WIDTH_PIXEL>7</WIDTH_PIXEL>
+<WIDTH>8.722</WIDTH>
+<HEIGHT_PIXEL>4</HEIGHT_PIXEL>
+<HEIGHT>4.984</HEIGHT>
+<DEPTH>17800</DEPTH>
+<AREA_PIXEL>22</AREA_PIXEL>
+<AREA>34.1554</AREA>
+<MAXVAL>428.872</MAXVAL>
+<MINVAL>1.26068</MINVAL>
+<IMAGE>contoursMasked_12.png</IMAGE>
+<IMAGEPHASE>contoursPhase_12.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_12.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>13</CONTOUR>
+<X_PIXEL>1027</X_PIXEL>
+<X>3.717</X>
+<Y_PIXEL>870.5</Y_PIXEL>
+<Y>-190.186</Y>
+<ESD>15.6308</ESD>
+<ESV>1999.6</ESV>
+<WIDTH_PIXEL>12</WIDTH_PIXEL>
+<WIDTH>14.868</WIDTH>
+<HEIGHT_PIXEL>13</HEIGHT_PIXEL>
+<HEIGHT>16.107</HEIGHT>
+<DEPTH>17700</DEPTH>
+<AREA_PIXEL>125</AREA_PIXEL>
+<AREA>191.89</AREA>
+<MAXVAL>1264.97</MAXVAL>
+<MINVAL>1.91702</MINVAL>
+<IMAGE>contoursMasked_13.png</IMAGE>
+<IMAGEPHASE>contoursPhase_13.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_13.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>14</CONTOUR>
+<X_PIXEL>994.5</X_PIXEL>
+<X>-34.4855</X>
+<Y_PIXEL>852.5</Y_PIXEL>
+<Y>-200.483</Y>
+<ESD>19.9176</ESD>
+<ESV>4137.23</ESV>
+<WIDTH_PIXEL>19</WIDTH_PIXEL>
+<WIDTH>22.211</WIDTH>
+<HEIGHT_PIXEL>17</HEIGHT_PIXEL>
+<HEIGHT>19.873</HEIGHT>
+<DEPTH>16700</DEPTH>
+<AREA_PIXEL>228</AREA_PIXEL>
+<AREA>311.576</AREA>
+<MAXVAL>1745.77</MAXVAL>
+<MINVAL>2.75276</MINVAL>
+<IMAGE>contoursMasked_14.png</IMAGE>
+<IMAGEPHASE>contoursPhase_14.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_14.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>15</CONTOUR>
+<X_PIXEL>355.5</X_PIXEL>
+<X>-837.63</X>
+<Y_PIXEL>837</Y_PIXEL>
+<Y>-234.311</Y>
+<ESD>10.097</ESD>
+<ESV>538.979</ESV>
+<WIDTH_PIXEL>9</WIDTH_PIXEL>
+<WIDTH>11.277</WIDTH>
+<HEIGHT_PIXEL>8</HEIGHT_PIXEL>
+<HEIGHT>10.024</HEIGHT>
+<DEPTH>17900</DEPTH>
+<AREA_PIXEL>51</AREA_PIXEL>
+<AREA>80.0705</AREA>
+<MAXVAL>691.323</MAXVAL>
+<MINVAL>1.63931</MINVAL>
+<IMAGE>contoursMasked_15.png</IMAGE>
+<IMAGEPHASE>contoursPhase_15.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_15.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>16</CONTOUR>
+<X_PIXEL>1566</X_PIXEL>
+<X>876.414</X>
+<Y_PIXEL>735</Y_PIXEL>
+<Y>-467.313</Y>
+<ESD>17.0186</ESD>
+<ESV>2580.91</ESV>
+<WIDTH_PIXEL>10</WIDTH_PIXEL>
+<WIDTH>16.17</WIDTH>
+<HEIGHT_PIXEL>10</HEIGHT_PIXEL>
+<HEIGHT>16.17</HEIGHT>
+<DEPTH>23100</DEPTH>
+<AREA_PIXEL>87</AREA_PIXEL>
+<AREA>227.478</AREA>
+<MAXVAL>963.59</MAXVAL>
+<MINVAL>2.15714</MINVAL>
+<IMAGE>contoursMasked_16.png</IMAGE>
+<IMAGEPHASE>contoursPhase_16.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_16.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>17</CONTOUR>
+<X_PIXEL>1262.5</X_PIXEL>
+<X>318.875</X>
+<Y_PIXEL>709.5</Y_PIXEL>
+<Y>-420.487</Y>
+<ESD>15.0864</ESD>
+<ESV>1797.87</ESV>
+<WIDTH_PIXEL>11</WIDTH_PIXEL>
+<WIDTH>14.707</WIDTH>
+<HEIGHT_PIXEL>11</HEIGHT_PIXEL>
+<HEIGHT>14.707</HEIGHT>
+<DEPTH>19100</DEPTH>
+<AREA_PIXEL>100</AREA_PIXEL>
+<AREA>178.757</AREA>
+<MAXVAL>950.155</MAXVAL>
+<MINVAL>2.65587</MINVAL>
+<IMAGE>contoursMasked_17.png</IMAGE>
+<IMAGEPHASE>contoursPhase_17.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_17.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>18</CONTOUR>
+<X_PIXEL>1096.5</X_PIXEL>
+<X>49.735</X>
+<Y_PIXEL>701.5</Y_PIXEL>
+<Y>-221.235</Y>
+<ESD>9.72989</ESD>
+<ESV>482.305</ESV>
+<WIDTH_PIXEL>13</WIDTH_PIXEL>
+<WIDTH>8.918</WIDTH>
+<HEIGHT_PIXEL>15</HEIGHT_PIXEL>
+<HEIGHT>10.29</HEIGHT>
+<DEPTH>9800</DEPTH>
+<AREA_PIXEL>158</AREA_PIXEL>
+<AREA>74.3542</AREA>
+<MAXVAL>963.682</MAXVAL>
+<MINVAL>2.86608</MINVAL>
+<IMAGE>contoursMasked_18.png</IMAGE>
+<IMAGEPHASE>contoursPhase_18.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_18.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>19</CONTOUR>
+<X_PIXEL>1666.5</X_PIXEL>
+<X>1056.91</X>
+<Y_PIXEL>677</Y_PIXEL>
+<Y>-570.815</Y>
+<ESD>23.6254</ESD>
+<ESV>6904.53</ESV>
+<WIDTH_PIXEL>15</WIDTH_PIXEL>
+<WIDTH>24.675</WIDTH>
+<HEIGHT_PIXEL>14</HEIGHT_PIXEL>
+<HEIGHT>23.03</HEIGHT>
+<DEPTH>23500</DEPTH>
+<AREA_PIXEL>162</AREA_PIXEL>
+<AREA>438.376</AREA>
+<MAXVAL>1370.79</MAXVAL>
+<MINVAL>2.56202</MINVAL>
+<IMAGE>contoursMasked_19.png</IMAGE>
+<IMAGEPHASE>contoursPhase_19.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_19.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>20</CONTOUR>
+<X_PIXEL>742</X_PIXEL>
+<X>-155.946</X>
+<Y_PIXEL>640</Y_PIXEL>
+<Y>-212.352</Y>
+<ESD>7.53974</ESD>
+<ESV>224.424</ESV>
+<WIDTH_PIXEL>14</WIDTH_PIXEL>
+<WIDTH>7.742</WIDTH>
+<HEIGHT_PIXEL>14</HEIGHT_PIXEL>
+<HEIGHT>7.742</HEIGHT>
+<DEPTH>7900</DEPTH>
+<AREA_PIXEL>146</AREA_PIXEL>
+<AREA>44.6481</AREA>
+<MAXVAL>666.675</MAXVAL>
+<MINVAL>2.52918</MINVAL>
+<IMAGE>contoursMasked_20.png</IMAGE>
+<IMAGEPHASE>contoursPhase_20.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_20.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>21</CONTOUR>
+<X_PIXEL>1604</X_PIXEL>
+<X>885.08</X>
+<Y_PIXEL>629</Y_PIXEL>
+<Y>-602.77</Y>
+<ESD>9.43127</ESD>
+<ESV>439.248</ESV>
+<WIDTH_PIXEL>6</WIDTH_PIXEL>
+<WIDTH>9.156</WIDTH>
+<HEIGHT_PIXEL>6</HEIGHT_PIXEL>
+<HEIGHT>9.156</HEIGHT>
+<DEPTH>21800</DEPTH>
+<AREA_PIXEL>30</AREA_PIXEL>
+<AREA>69.8603</AREA>
+<MAXVAL>832.681</MAXVAL>
+<MINVAL>1.50099</MINVAL>
+<IMAGE>contoursMasked_21.png</IMAGE>
+<IMAGEPHASE>contoursPhase_21.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_21.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>22</CONTOUR>
+<X_PIXEL>1386</X_PIXEL>
+<X>261.002</X>
+<Y_PIXEL>588</Y_PIXEL>
+<Y>-314.356</Y>
+<ESD>19.5424</ESD>
+<ESV>3907.81</ESV>
+<WIDTH_PIXEL>30</WIDTH_PIXEL>
+<WIDTH>21.63</WIDTH>
+<HEIGHT_PIXEL>26</HEIGHT_PIXEL>
+<HEIGHT>18.746</HEIGHT>
+<DEPTH>10300</DEPTH>
+<AREA_PIXEL>577</AREA_PIXEL>
+<AREA>299.948</AREA>
+<MAXVAL>1650.11</MAXVAL>
+<MINVAL>2.8698</MINVAL>
+<IMAGE>contoursMasked_22.png</IMAGE>
+<IMAGEPHASE>contoursPhase_22.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_22.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>23</CONTOUR>
+<X_PIXEL>786</X_PIXEL>
+<X>-159.936</X>
+<Y_PIXEL>545</Y_PIXEL>
+<Y>-321.888</Y>
+<ESD>7.95281</ESD>
+<ESV>263.367</ESV>
+<WIDTH_PIXEL>12</WIDTH_PIXEL>
+<WIDTH>8.064</WIDTH>
+<HEIGHT_PIXEL>12</HEIGHT_PIXEL>
+<HEIGHT>8.064</HEIGHT>
+<DEPTH>9600</DEPTH>
+<AREA_PIXEL>110</AREA_PIXEL>
+<AREA>49.6742</AREA>
+<MAXVAL>635.361</MAXVAL>
+<MINVAL>1.92397</MINVAL>
+<IMAGE>contoursMasked_23.png</IMAGE>
+<IMAGEPHASE>contoursPhase_23.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_23.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>24</CONTOUR>
+<X_PIXEL>1392.5</X_PIXEL>
+<X>570.07</X>
+<Y_PIXEL>519.5</Y_PIXEL>
+<Y>-780.462</Y>
+<ESD>22.7599</ESD>
+<ESV>6173.17</ESV>
+<WIDTH_PIXEL>15</WIDTH_PIXEL>
+<WIDTH>23.205</WIDTH>
+<HEIGHT_PIXEL>15</HEIGHT_PIXEL>
+<HEIGHT>23.205</HEIGHT>
+<DEPTH>22100</DEPTH>
+<AREA_PIXEL>170</AREA_PIXEL>
+<AREA>406.846</AREA>
+<MAXVAL>1301.96</MAXVAL>
+<MINVAL>2.10732</MINVAL>
+<IMAGE>contoursMasked_24.png</IMAGE>
+<IMAGEPHASE>contoursPhase_24.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_24.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>25</CONTOUR>
+<X_PIXEL>631</X_PIXEL>
+<X>-475.923</X>
+<Y_PIXEL>499</Y_PIXEL>
+<Y>-635.775</Y>
+<ESD>14.8436</ESD>
+<ESV>1712.46</ESV>
+<WIDTH_PIXEL>12</WIDTH_PIXEL>
+<WIDTH>14.532</WIDTH>
+<HEIGHT_PIXEL>12</HEIGHT_PIXEL>
+<HEIGHT>14.532</HEIGHT>
+<DEPTH>17300</DEPTH>
+<AREA_PIXEL>118</AREA_PIXEL>
+<AREA>173.049</AREA>
+<MAXVAL>1009.59</MAXVAL>
+<MINVAL>2.11298</MINVAL>
+<IMAGE>contoursMasked_25.png</IMAGE>
+<IMAGEPHASE>contoursPhase_25.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_25.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>26</CONTOUR>
+<X_PIXEL>1442.5</X_PIXEL>
+<X>459.931</X>
+<Y_PIXEL>337.5</Y_PIXEL>
+<Y>-754.464</Y>
+<ESD>11.6331</ESD>
+<ESV>824.292</ESV>
+<WIDTH_PIXEL>11</WIDTH_PIXEL>
+<WIDTH>12.089</WIDTH>
+<HEIGHT_PIXEL>11</HEIGHT_PIXEL>
+<HEIGHT>12.089</HEIGHT>
+<DEPTH>15700</DEPTH>
+<AREA_PIXEL>88</AREA_PIXEL>
+<AREA>106.286</AREA>
+<MAXVAL>788.465</MAXVAL>
+<MINVAL>1.96312</MINVAL>
+<IMAGE>contoursMasked_26.png</IMAGE>
+<IMAGEPHASE>contoursPhase_26.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_26.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>27</CONTOUR>
+<X_PIXEL>872</X_PIXEL>
+<X>-178.752</X>
+<Y_PIXEL>300.5</Y_PIXEL>
+<Y>-850.836</Y>
+<ESD>10.9425</ESD>
+<ESV>686.04</ESV>
+<WIDTH_PIXEL>10</WIDTH_PIXEL>
+<WIDTH>11.76</WIDTH>
+<HEIGHT_PIXEL>9</HEIGHT_PIXEL>
+<HEIGHT>10.584</HEIGHT>
+<DEPTH>16800</DEPTH>
+<AREA_PIXEL>68</AREA_PIXEL>
+<AREA>94.0424</AREA>
+<MAXVAL>775.061</MAXVAL>
+<MINVAL>1.55754</MINVAL>
+<IMAGE>contoursMasked_27.png</IMAGE>
+<IMAGEPHASE>contoursPhase_27.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_27.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>28</CONTOUR>
+<X_PIXEL>1797.5</X_PIXEL>
+<X>1266.99</X>
+<Y_PIXEL>283.5</Y_PIXEL>
+<Y>-1212.94</Y>
+<ESD>11.0897</ESD>
+<ESV>714.1</ESV>
+<WIDTH_PIXEL>7</WIDTH_PIXEL>
+<WIDTH>11.466</WIDTH>
+<HEIGHT_PIXEL>7</HEIGHT_PIXEL>
+<HEIGHT>11.466</HEIGHT>
+<DEPTH>23400</DEPTH>
+<AREA_PIXEL>36</AREA_PIXEL>
+<AREA>96.5896</AREA>
+<MAXVAL>665.806</MAXVAL>
+<MINVAL>1.71273</MINVAL>
+<IMAGE>contoursMasked_28.png</IMAGE>
+<IMAGEPHASE>contoursPhase_28.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_28.png</IMAGESCORE>
+</ROI>
+<ROI>
+<CONTOUR>29</CONTOUR>
+<X_PIXEL>567.5</X_PIXEL>
+<X>-680.641</X>
+<Y_PIXEL>222.5</Y_PIXEL>
+<Y>-1195.04</Y>
+<ESD>17.3215</ESD>
+<ESV>2721.17</ESV>
+<WIDTH_PIXEL>11</WIDTH_PIXEL>
+<WIDTH>16.401</WIDTH>
+<HEIGHT_PIXEL>13</HEIGHT_PIXEL>
+<HEIGHT>19.383</HEIGHT>
+<DEPTH>21300</DEPTH>
+<AREA_PIXEL>106</AREA_PIXEL>
+<AREA>235.647</AREA>
+<MAXVAL>755.007</MAXVAL>
+<MINVAL>1.92547</MINVAL>
+<IMAGE>contoursMasked_29.png</IMAGE>
+<IMAGEPHASE>contoursPhase_29.png</IMAGEPHASE>
+<IMAGESCORE>contoursScore_29.png</IMAGESCORE>
+</ROI>
+</DATA>
+<SETTINGS>
+  <DF>/data2/FK170124/holograms/temporaryData</DF>
+  <OF>/data2/FK170124/holograms/reports/95</OF>
+  <TF>/data2/FK170124/holograms/Settings</TF>
+  <QCF></QCF>
+  <ONLINE>0</ONLINE>
+  <IP>10.12.160.99</IP>
+  <PORT>1975</PORT>
+  <SHOW>0</SHOW>
+  <MICS>300</MICS>
+  <SHARP>1</SHARP>
+  <SHARP_METHOD>2</SHARP_METHOD>
+  <ABS>0</ABS>
+  <STEP>100</STEP>
+  <MIN>500</MIN>
+  <MAX>25000</MAX>
+  <WIDTH>2048</WIDTH>
+  <HEIGHT>2048</HEIGHT>
+  <REFINE>0</REFINE>
+  <WINDOW>7</WINDOW>
+  <MAX_THRESH>0.95</MAX_THRESH>
+  <MIN_AREA>5</MIN_AREA>
+  <MERGE>1</MERGE>
+  <MERGE_DEPTH>0</MERGE_DEPTH>
+  <MERGE_DIST>1</MERGE_DIST>
+  <SCOPE>Submersible_2000</SCOPE>
+  <STS>100000</STS>
+  <PS>7</PS>
+</SETTINGS>
+</doc>

@@ -1,0 +1,22 @@
+<Processing>
+    <Step1>
+        <Image>FK170124_station1_cast003_28-Jan-2017_16-22-18-277.bmp</Image>
+        <Background>FK170124_station1_cast003_28-Jan-2017_16-22-18-277_background.bmp</Background>
+        <OriginalFolder>/data2/FK170124/raw_holograms/station_1/003/images</OriginalFolder>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-17-402.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-17-527.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-17-652.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-17-777.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-17-902.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-18-027.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-18-152.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-18-277.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-18-402.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-18-527.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-18-652.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-18-777.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-18-902.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-19-027.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station1_cast003_28-Jan-2017_16-22-19-152.bmp</ImageUsedForBackground>
+    </Step1>
+</Processing>

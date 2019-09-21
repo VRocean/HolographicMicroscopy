@@ -1,0 +1,15 @@
+<Processing>
+    <Step1>
+        <Image>FK170124_station3_cast031_13-Feb-2017_04-05-55-689.bmp</Image>
+        <Background>FK170124_station3_cast031_13-Feb-2017_04-05-55-689_background.bmp</Background>
+        <StdDev>2.326356</StdDev>
+        <OriginalFolder>Z:\FK170124\raw_holograms\station_3\031\images</OriginalFolder>
+        <ImageUsedForBackground>FK170124_station3_cast031_13-Feb-2017_04-05-55-689.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station3_cast031_13-Feb-2017_04-05-55-752.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station3_cast031_13-Feb-2017_04-05-55-877.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station3_cast031_13-Feb-2017_04-05-56-189.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station3_cast031_13-Feb-2017_04-05-56-689.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station3_cast031_13-Feb-2017_04-05-56-752.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station3_cast031_13-Feb-2017_04-05-56-877.bmp</ImageUsedForBackground>
+    </Step1>
+</Processing>

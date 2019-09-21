@@ -1,0 +1,35 @@
+<Settings>
+	<datafolder>D:/data/bigStuff2</datafolder>
+	<outputFolder>Z:/FK170124/holograms/temporaryData/</outputFolder>
+	<templateFolder></templateFolder>
+	
+	<online>1</online>
+	<ip>127.0.0.1</ip>
+	<port>1975</port>
+	
+	<show>1</show>
+
+	<useAbs>1</useAbs>
+	<step_size>100</step_size>
+	<min_depth>500</min_depth>
+	<max_depth>25000</max_depth>
+	<width>2048</width>
+	<height>2048</height>
+
+	<doRefine>0</doRefine>
+
+	<windowsize>5</windowsize>
+
+	<max_threshold>0.35</max_threshold>
+	<contour_minArea>10.0</contour_minArea>
+
+	<doMergebounds>1</doMergebounds>
+	<merge_threshold_depth>400</merge_threshold_depth>
+	<merge_threshold_dist>50</merge_threshold_dist>
+	
+	<savePngImages>0</savePngImages>
+	
+	<screen_to_source>100000</screen_to_source>
+	<pixel_size>7.4</pixel_size>
+	<startRemote>1</startRemote>
+</Settings>

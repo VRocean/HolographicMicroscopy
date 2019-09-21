@@ -1,0 +1,15 @@
+<Processing>
+    <Step1>
+        <Image>FK170124_station2_cast012_05-Feb-2017_07-17-42-452.bmp</Image>
+        <Background>FK170124_station2_cast012_05-Feb-2017_07-17-42-452_background.bmp</Background>
+        <StdDev>0.523674</StdDev>
+        <OriginalFolder>D:\data\012\images</OriginalFolder>
+        <ImageUsedForBackground>FK170124_station2_cast012_05-Feb-2017_07-17-42-452.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station2_cast012_05-Feb-2017_07-17-42-577.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station2_cast012_05-Feb-2017_07-17-42-702.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station2_cast012_05-Feb-2017_07-17-42-827.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station2_cast012_05-Feb-2017_07-17-42-952.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station2_cast012_05-Feb-2017_07-17-43-077.bmp</ImageUsedForBackground>
+        <ImageUsedForBackground>FK170124_station2_cast012_05-Feb-2017_07-17-43-202.bmp</ImageUsedForBackground>
+    </Step1>
+</Processing>

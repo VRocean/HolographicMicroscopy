@@ -1,0 +1,330 @@
+<?xml-stylesheet type="text/xsl" href="#stylesheet"?>
+<!DOCTYPE doc [
+<!ATTLIST xsl:stylesheet
+id ID #REQUIRED>
+]>
+<doc>
+	<!--Start XSL-->
+	<xsl:stylesheet  id="stylesheet" version="1.0" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+		<xsl:template match="/doc">
+			<html>
+				<body>
+					<h2>
+						<xsl:value-of select="DATA/FILENAME"/>
+					</h2>
+					
+					<h2>
+					Processing time : <xsl:value-of select="DATA/TIME"/> minutes
+					</h2>
+					<h5>
+						Contours Splatted
+					</h5>
+					<img height="1024" width="1024">
+						<xsl:attribute name="src">
+							<xsl:value-of select="DATA/CONTOURSPLATIMAGE"/>
+						</xsl:attribute>
+					</img>
+					<h5>
+						Depth
+					</h5>
+					<img height="1024" width="1024">
+						<xsl:attribute name="src">
+							<xsl:value-of select="DATA/DEPTHIMAGE"/>
+						</xsl:attribute>
+					</img>
+					<h5>
+						Contours IDs
+					</h5>
+					<img height="1024" width="1024">
+						<xsl:attribute name="src">
+							<xsl:value-of select="DATA/CONTOURIMAGE"/>
+						</xsl:attribute>
+					</img>
+					<h5>
+						Scores
+					</h5>
+					<img height="1024" width="1024">
+						<xsl:attribute name="src">
+							<xsl:value-of select="DATA/MAXIMAGE"/>
+						</xsl:attribute>
+					</img>
+					<xsl:if test="QCDATA">
+						<h3>
+						QC Data
+						</h3>
+						<table border="1">
+							<tr bgcolor="#9acd32">
+								<th>Type</th>
+								<th>X</th>
+								<th>Y</th>
+								<th>Major axis</th>
+								<th>Minor axis</th>
+								<th>Depth</th>
+								<th>Image</th>
+							</tr>
+							<xsl:for-each select="QCDATA/ROI">
+								<tr>
+									<td><xsl:value-of select="TYPE"/></td>
+									<td><xsl:value-of select="X"/></td>
+									<td><xsl:value-of select="Y"/></td>
+									<td><xsl:value-of select="MAJORAXIS"/></td>
+									<td><xsl:value-of select="MINORAXIS"/></td>
+									<td><xsl:value-of select="DEPTH"/></td>
+									<td>
+										<img>
+											<xsl:attribute name="src">
+												<xsl:value-of select="IMAGE"/>
+											</xsl:attribute>
+										</img>
+									</td>
+								</tr>
+							</xsl:for-each>
+						</table>
+					</xsl:if>
+					
+					<h3>
+					Detected
+					</h3>
+					
+					<table border="1">
+						<tr bgcolor="#9acd32">
+							<th>Contour</th>
+							<th>X</th>
+							<th>Y</th>
+							<th>Width</th>
+							<th>Height</th>
+							<th>Depth</th>
+							<th>Image</th>
+							<th>Phase</th>
+							<th>Score</th>
+							<th>MaxScore</th>
+							<th>MinScore</th>
+						</tr>
+						<xsl:for-each select="DATA/ROI">
+							<tr>
+								<td><xsl:value-of select="CONTOUR"/></td>
+								<td><xsl:value-of select="X"/></td>
+								<td><xsl:value-of select="Y"/></td>
+								<td><xsl:value-of select="WIDTH"/></td>
+								<td><xsl:value-of select="HEIGHT"/></td>
+								<td><xsl:value-of select="DEPTH"/></td>
+								<td>
+									<img>
+										<xsl:attribute name="src">
+											<xsl:value-of select="IMAGE"/>
+										</xsl:attribute>
+									</img>
+								</td>
+								<td>
+									<img>
+										<xsl:attribute name="src">
+											<xsl:value-of select="IMAGEPHASE"/>
+										</xsl:attribute>
+									</img>
+								</td>
+								<td>
+									<img>
+										<xsl:attribute name="src">
+											<xsl:value-of select="IMAGESCORE"/>
+										</xsl:attribute>
+									</img>
+								</td>
+								<td><xsl:value-of select="MAXVAL"/></td>
+								<td><xsl:value-of select="MINVAL"/></td>
+							</tr>
+						</xsl:for-each>
+					</table>
+				</body>
+			</html>
+			
+		</xsl:template>
+	</xsl:stylesheet>
+  
+
+    <DATA>
+        <FILENAME>FK170124_station1_cast003_28-Jan-2017_16-25-25-402.bmp</FILENAME>
+        <CONTOURSPLATIMAGE>contoursSplat.png</CONTOURSPLATIMAGE>
+        <CONTOURIMAGE>contours.png</CONTOURIMAGE>
+        <MAXIMAGE>maximum.png</MAXIMAGE>
+        <DEPTHIMAGE>depthImage.png</DEPTHIMAGE>
+        <TIME>2</TIME>
+        <NBCONTOURS>7</NBCONTOURS>
+        <ROI>
+            <CONTOUR>0</CONTOUR>
+            <X_PIXEL>1554.5</X_PIXEL>
+            <X>560.738</X>
+            <Y_PIXEL>1697.5</Y_PIXEL>
+            <Y>711.889</Y>
+            <ESD>13.148565</ESD>
+            <ESV>1190.2377</ESV>
+            <WIDTH_PIXEL>11</WIDTH_PIXEL>
+            <WIDTH>11.627</WIDTH>
+            <HEIGHT_PIXEL>9</HEIGHT_PIXEL>
+            <HEIGHT>9.513</HEIGHT>
+            <DEPTH>15100</DEPTH>
+            <AREA_PIXEL>72.5</AREA_PIXEL>
+            <AREA>90.522250099999994</AREA>
+            <MAXVAL>1472.2</MAXVAL>
+            <MINVAL>2.64508</MINVAL>
+            <IMAGE>contoursMasked_0_refined.png</IMAGE>
+            <IMAGEPHASE>contoursPhase_0.png</IMAGEPHASE>
+            <IMAGESCORE>contoursScore_0.png</IMAGESCORE>
+        </ROI>
+        <ROI>
+            <CONTOUR>1</CONTOUR>
+            <X_PIXEL>1112</X_PIXEL>
+            <X>118.272</X>
+            <Y_PIXEL>1509.5</Y_PIXEL>
+            <Y>652.512</Y>
+            <ESD>7.0795445</ESD>
+            <ESV>185.78668</ESV>
+            <WIDTH_PIXEL>8</WIDTH_PIXEL>
+            <WIDTH>10.752</WIDTH>
+            <HEIGHT_PIXEL>7</HEIGHT_PIXEL>
+            <HEIGHT>9.408</HEIGHT>
+            <DEPTH>19200</DEPTH>
+            <AREA_PIXEL>13</AREA_PIXEL>
+            <AREA>26.242744320000003</AREA>
+            <MAXVAL>2381.06</MAXVAL>
+            <MINVAL>2.52091</MINVAL>
+            <IMAGE>contoursMasked_1_refined.png</IMAGE>
+            <IMAGEPHASE>contoursPhase_1.png</IMAGEPHASE>
+            <IMAGESCORE>contoursScore_1.png</IMAGESCORE>
+        </ROI>
+        <ROI>
+            <CONTOUR>2</CONTOUR>
+            <X_PIXEL>1400</X_PIXEL>
+            <X>626.416</X>
+            <Y_PIXEL>1155.5</Y_PIXEL>
+            <Y>219.079</Y>
+            <ESD>6.2053466</ESD>
+            <ESV>125.11135</ESV>
+            <WIDTH_PIXEL>10</WIDTH_PIXEL>
+            <WIDTH>16.66</WIDTH>
+            <HEIGHT_PIXEL>11</HEIGHT_PIXEL>
+            <HEIGHT>18.326</HEIGHT>
+            <DEPTH>23800</DEPTH>
+            <AREA_PIXEL>6.5</AREA_PIXEL>
+            <AREA>20.161865360000004</AREA>
+            <MAXVAL>2976.22</MAXVAL>
+            <MINVAL>3.77309</MINVAL>
+            <IMAGE>contoursMasked_2_refined.png</IMAGE>
+            <IMAGEPHASE>contoursPhase_2.png</IMAGEPHASE>
+            <IMAGESCORE>contoursScore_2.png</IMAGESCORE>
+        </ROI>
+        <ROI>
+            <CONTOUR>3</CONTOUR>
+            <X_PIXEL>1220</X_PIXEL>
+            <X>256.564</X>
+            <Y_PIXEL>994.5</Y_PIXEL>
+            <Y>-38.6155</Y>
+            <ESD>7.8849416</ESD>
+            <ESV>256.68118</ESV>
+            <WIDTH_PIXEL>12</WIDTH_PIXEL>
+            <WIDTH>15.708</WIDTH>
+            <HEIGHT_PIXEL>11</HEIGHT_PIXEL>
+            <HEIGHT>14.399</HEIGHT>
+            <DEPTH>18700</DEPTH>
+            <AREA_PIXEL>17</AREA_PIXEL>
+            <AREA>32.553341480000007</AREA>
+            <MAXVAL>4136.91</MAXVAL>
+            <MINVAL>3.64945</MINVAL>
+            <IMAGE>contoursMasked_3_refined.png</IMAGE>
+            <IMAGEPHASE>contoursPhase_3.png</IMAGEPHASE>
+            <IMAGESCORE>contoursScore_3.png</IMAGESCORE>
+        </ROI>
+        <ROI>
+            <CONTOUR>4</CONTOUR>
+            <X_PIXEL>1198</X_PIXEL>
+            <X>227.766</X>
+            <Y_PIXEL>702.5</Y_PIXEL>
+            <Y>-420.844</Y>
+            <ESD>31.742039</ESD>
+            <ESV>16745.691</ESV>
+            <WIDTH_PIXEL>38</WIDTH_PIXEL>
+            <WIDTH>49.742</WIDTH>
+            <HEIGHT_PIXEL>145</HEIGHT_PIXEL>
+            <HEIGHT>189.805</HEIGHT>
+            <DEPTH>18700</DEPTH>
+            <AREA_PIXEL>275.5</AREA_PIXEL>
+            <AREA>527.55562222000015</AREA>
+            <MAXVAL>3711.49</MAXVAL>
+            <MINVAL>6.11443</MINVAL>
+            <IMAGE>contoursMasked_4_refined.png</IMAGE>
+            <IMAGEPHASE>contoursPhase_4.png</IMAGEPHASE>
+            <IMAGESCORE>contoursScore_4.png</IMAGESCORE>
+        </ROI>
+        <ROI>
+            <CONTOUR>5</CONTOUR>
+            <X_PIXEL>946.5</X_PIXEL>
+            <X>-119.893</X>
+            <Y_PIXEL>608.5</Y_PIXEL>
+            <Y>-642.779</Y>
+            <ESD>5.9796214</ESD>
+            <ESV>111.94885</ESV>
+            <WIDTH_PIXEL>5</WIDTH_PIXEL>
+            <WIDTH>7.735</WIDTH>
+            <HEIGHT_PIXEL>5</HEIGHT_PIXEL>
+            <HEIGHT>7.735</HEIGHT>
+            <DEPTH>22100</DEPTH>
+            <AREA_PIXEL>7</AREA_PIXEL>
+            <AREA>18.721732120000002</AREA>
+            <MAXVAL>2632.33</MAXVAL>
+            <MINVAL>1.48227</MINVAL>
+            <IMAGE>contoursMasked_5_refined.png</IMAGE>
+            <IMAGEPHASE>contoursPhase_5.png</IMAGEPHASE>
+            <IMAGESCORE>contoursScore_5.png</IMAGESCORE>
+        </ROI>
+        <ROI>
+            <CONTOUR>6</CONTOUR>
+            <X_PIXEL>990</X_PIXEL>
+            <X>-49.98</X>
+            <Y_PIXEL>474</Y_PIXEL>
+            <Y>-808.5</Y>
+            <ESD>9.1114597</ESD>
+            <ESV>396.06137</ESV>
+            <WIDTH_PIXEL>10</WIDTH_PIXEL>
+            <WIDTH>14.7</WIDTH>
+            <HEIGHT_PIXEL>10</HEIGHT_PIXEL>
+            <HEIGHT>14.7</HEIGHT>
+            <DEPTH>21000</DEPTH>
+            <AREA_PIXEL>18</AREA_PIXEL>
+            <AREA>43.468488000000001</AREA>
+            <MAXVAL>2560.12</MAXVAL>
+            <MINVAL>3.54893</MINVAL>
+            <IMAGE>contoursMasked_6_refined.png</IMAGE>
+            <IMAGEPHASE>contoursPhase_6.png</IMAGEPHASE>
+            <IMAGESCORE>contoursScore_6.png</IMAGESCORE>
+        </ROI>
+    </DATA>
+    <SETTINGS>
+        <DF>/data2/FK170124/holograms/temporaryData</DF>
+        <OF>/data2/FK170124/holograms/reports/95</OF>
+        <TF>/data2/FK170124/holograms/Settings</TF>
+        <QCF/>
+        <ONLINE>0</ONLINE>
+        <IP>10.12.160.99</IP>
+        <PORT>1975</PORT>
+        <SHOW>0</SHOW>
+        <MICS>300</MICS>
+        <SHARP>1</SHARP>
+        <SHARP_METHOD>2</SHARP_METHOD>
+        <ABS>0</ABS>
+        <STEP>100</STEP>
+        <MIN>500</MIN>
+        <MAX>25000</MAX>
+        <WIDTH>2048</WIDTH>
+        <HEIGHT>2048</HEIGHT>
+        <REFINE>0</REFINE>
+        <WINDOW>7</WINDOW>
+        <MAX_THRESH>0.95</MAX_THRESH>
+        <MIN_AREA>5</MIN_AREA>
+        <MERGE>1</MERGE>
+        <MERGE_DEPTH>0</MERGE_DEPTH>
+        <MERGE_DIST>1</MERGE_DIST>
+        <SCOPE>Submersible_2000</SCOPE>
+        <STS>100000</STS>
+        <PS>7</PS>
+    </SETTINGS>
+</doc>
