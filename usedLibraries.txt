@@ -1,0 +1,9 @@
+MinVR
+GLFW
+OpenVR
+GLEW
+OpenCV
+FTGL
+PNG
+ZLIB
+Freetype
