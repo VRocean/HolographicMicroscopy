@@ -1,1 +1,0 @@
-Holo-VR.exe -c HTC_Vive.xml data\akashiwo2 2 5000 22000
